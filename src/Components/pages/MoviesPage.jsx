@@ -1,7 +1,20 @@
-import React from 'react';
+import { useState } from 'react';
+import SearchForm from 'Components/SearchForm';
 
 function MoviesPage() {
-  return <h1>Страница поиска фильмов</h1>;
+  // const [query, setQuery] = useState('');
+  // const [movies, setMovies] = useState([]);
+
+  // const onSubmit = text => {
+  //   setQuery(text);
+  // };
+
+  return (
+    <div>
+      <h1>Enter search query</h1>
+      <SearchForm />
+    </div>
+  );
 }
 
 export default MoviesPage;
