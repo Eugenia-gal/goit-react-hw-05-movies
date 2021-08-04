@@ -46,12 +46,28 @@ export default class MoviesApiService {
           title: data.original_title,
           genres: data.genres.slice(0, 2).map(({ name }) => name),
           about: data.overview,
-          popularity: data.popularity,
           vote: data.vote_average,
-          votes: data.vote_count,
           release: data.release_date.substring(0, 4),
           poster_path: data.poster_path,
         };
+      });
+  }
+
+  fetchMovieCast(id) {
+    const url = `${BASE_URL}movie/${id}/credits?api_key=${API_KEY}&language=en-US`;
+    return fetch(url)
+      .then(r => r.json())
+      .then(data => {
+        return data.cast;
+      });
+  }
+
+  fetchMovieReviews(id) {
+    const url = `${BASE_URL}movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`;
+    return fetch(url)
+      .then(r => r.json())
+      .then(data => {
+        return data.results;
       });
   }
 
