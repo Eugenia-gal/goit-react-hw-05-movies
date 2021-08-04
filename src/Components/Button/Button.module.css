@@ -1,0 +1,15 @@
+.btn {
+  display: block;
+  text-decoration: none;
+  max-width: 100px;
+  background-color: #dbd9d9;
+  color: black;
+  text-align: center;
+  border-radius: 2px;
+  border: 1px solid black;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #bebdbd;
+}
