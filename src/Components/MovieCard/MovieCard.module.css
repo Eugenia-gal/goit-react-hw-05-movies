@@ -1,0 +1,17 @@
+.thumb {
+  display: flex;
+  border-bottom: 2px solid black;
+  padding: 20px;
+}
+
+.image {
+  width: 250px;
+}
+
+.info {
+  flex-grow: 1;
+  padding: 20px;
+}
+.genre:not(:last-of-type) {
+  margin-right: 5px;
+}
