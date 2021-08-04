@@ -3,23 +3,21 @@ import { MdLocalMovies } from 'react-icons/md';
 import s from './SearchForm.module.css';
 
 function SeachForm({ onSubmit }) {
-  const sendQuery = e => {
+  const handleSubmit = e => {
     e.preventDefault();
-    console.log(e.currentTarget.elements);
-    // onSubmit(e.target.value);
+    onSubmit(e.target.elements.query.value);
   };
   return (
-    <form className={s.search_form} id="search-form">
+    <form className={s.search_form} id="search-form" onSubmit={handleSubmit}>
       <input
         type="text"
         className={s.input}
         name="query"
         autoComplete="off"
         placeholder="Search movies..."
-        onSubmit={sendQuery}
       />
       <button type="submit" className={s.btn}>
-        <MdLocalMovies />
+        <MdLocalMovies className={s.icon} />
       </button>
     </form>
   );
