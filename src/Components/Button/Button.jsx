@@ -1,12 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import s from './Button.module.css';
 
-function Button(href) {
+function Button({ onClick }) {
   return (
-    <Link to={href} className={s.btn}>
+    <button type="button" className={s.btn} onClick={onClick}>
       Go Back
-    </Link>
+    </button>
   );
 }
 

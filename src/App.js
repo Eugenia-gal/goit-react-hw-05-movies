@@ -25,6 +25,10 @@ function App() {
           <MovieDetailsPage />
         </Route>
 
+        <Route path={`/movies&query=:query`}>
+          <MoviesPage />
+        </Route>
+
         <Route>
           <NotFoundPage />
         </Route>

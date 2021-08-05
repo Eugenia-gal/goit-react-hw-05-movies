@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import MoviesApiService from 'Services/moviesAPI';
 
 const moviesApiService = new MoviesApiService();
 
 export function HomePage() {
+  const { pathname } = useLocation();
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -18,7 +19,14 @@ export function HomePage() {
         {movies.length > 0 &&
           movies.map(movie => (
             <li key={movie.id}>
-              <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+              <Link
+                to={{
+                  pathname: `/movies/${movie.id}`,
+                  state: pathname,
+                }}
+              >
+                {movie.title}
+              </Link>
             </li>
           ))}
       </ul>
