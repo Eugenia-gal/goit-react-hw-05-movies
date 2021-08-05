@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import MoviesApiService from '../../Services/moviesAPI';
 import { getPoster } from 'Services/get-poster';
 import ActorCard from 'Components/ActorCard';
@@ -29,9 +30,15 @@ function MovieCast({ selectedMovieId }) {
 
   return (
     <div>
-      <ul>{cast && cast.map(actor => <ActorCard actor={actor} />)}</ul>
+      <ul>
+        {cast && cast.map(actor => <ActorCard actor={actor} key={actor.id} />)}
+      </ul>
     </div>
   );
 }
+
+MovieCast.propTypes = {
+  selectedMovieId: PropTypes.string,
+};
 
 export default MovieCast;

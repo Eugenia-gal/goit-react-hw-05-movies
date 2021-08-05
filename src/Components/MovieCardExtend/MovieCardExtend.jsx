@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import s from './MovieCardExtend.module.css';
 
 function MovieCardExtend({ url }) {
@@ -17,5 +18,8 @@ function MovieCardExtend({ url }) {
     </div>
   );
 }
+MovieCardExtend.propTypes = {
+  url: PropTypes.string.isRequired,
+};
 
 export default MovieCardExtend;

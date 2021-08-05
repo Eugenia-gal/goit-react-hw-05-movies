@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import s from './MovieCard.module.css';
 
 function MovieCard({ movie }) {
@@ -19,5 +20,16 @@ function MovieCard({ movie }) {
     </div>
   );
 }
+
+MovieCard.propTypes = {
+  movie: PropTypes.shape({
+    poster: PropTypes.string,
+    title: PropTypes.string,
+    release: PropTypes.string,
+    vote: PropTypes.number,
+    about: PropTypes.string,
+    genres: PropTypes.arrayOf(PropTypes.string),
+  }),
+};
 
 export default MovieCard;

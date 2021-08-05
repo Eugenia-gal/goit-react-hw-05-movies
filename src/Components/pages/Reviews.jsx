@@ -1,5 +1,6 @@
-import ReviewCard from 'Components/ReviewCard';
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import ReviewCard from 'Components/ReviewCard';
 import MoviesApiService from '../../Services/moviesAPI';
 
 const moviesApiService = new MoviesApiService();
@@ -30,10 +31,15 @@ function MovieReviews({ selectedMovieId }) {
       {isEmpty && <strong>We don't have any reviews for this movie</strong>}
 
       <ul>
-        {reviews && reviews.map(review => <ReviewCard review={review} />)}
+        {reviews &&
+          reviews.map(review => <ReviewCard review={review} key={review.id} />)}
       </ul>
     </div>
   );
 }
+
+MovieReviews.propTypes = {
+  selectedMovieId: PropTypes.string,
+};
 
 export default MovieReviews;

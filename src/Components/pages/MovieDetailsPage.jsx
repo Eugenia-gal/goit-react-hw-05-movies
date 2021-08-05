@@ -31,8 +31,6 @@ function MovieDetailsPage() {
     }
   }, [location.state]);
 
-  console.log(routerState.current);
-
   const handleClick = () => {
     if (!routerState.current) {
       history.push('/');
