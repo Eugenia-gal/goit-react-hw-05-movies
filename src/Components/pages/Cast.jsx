@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import MoviesApiService from '../../Services/moviesAPI';
 import { getPoster } from 'Services/get-poster';
-import s from './Cast.module.css';
+import ActorCard from 'Components/ActorCard';
 
 const moviesApiService = new MoviesApiService();
 
@@ -29,16 +29,7 @@ function MovieCast({ selectedMovieId }) {
 
   return (
     <div>
-      <ul>
-        {cast &&
-          cast.map(actor => (
-            <li className={s.info} key={actor.id}>
-              <img src={actor.poster} alt={actor.name} width={150} />
-              {actor.name}
-              <p>{`Character: ${actor.character}`}</p>
-            </li>
-          ))}
-      </ul>
+      <ul>{cast && cast.map(actor => <ActorCard actor={actor} />)}</ul>
     </div>
   );
 }
